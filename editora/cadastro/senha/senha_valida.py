@@ -1,4 +1,4 @@
-def verificar_senha():
+def senha_valida():
     senha1 = input("Senha: ")
     senha2 = input("Insira a senha novamente: ")
 
@@ -6,4 +6,4 @@ def verificar_senha():
         return senha1
     else:
         print("Senhas não correspondentes\nTente novamente!")
-        verificar_senha()
+        senha_valida()
