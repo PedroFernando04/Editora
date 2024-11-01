@@ -1,6 +1,6 @@
 CREATE TABLE paises(
   id_pais serial primary key,
-  nome_pais not null unique
+  nome_pais varchar(200) not null unique
 );
 
 CREATE TABLE autores(
