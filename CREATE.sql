@@ -2,7 +2,8 @@ CREATE TABLE autores(
   id_autor serial primary key,
   nome_autor varchar(500) not null,
   data_nascimento date not null,
-  genero_autor char(1)
+  genero_autor char(1),
+  pais varchar(200)
 );
 
 CREATE TABLE editoras(
@@ -15,6 +16,15 @@ CREATE TABLE generos(
   nome_genero varchar(500) not null unique
 );
 
+CREATE TABLE clientes(
+  id_cliente serial primary key,
+  nome_cliente varchar(500),
+  email_cliente varchar(500),
+  senha_cliente varchar(500),
+  genero_cliente char(1),
+  pais_cliente varchar(200)
+);
+
 CREATE TABLE livros(
   id_livro serial primary key,
   nome_livro varchar(500) not null unique,
@@ -23,5 +33,10 @@ CREATE TABLE livros(
   data_de_lancamento date,
   id_genero_livro int references generos(id_genero),
   status_livro varchar(20),
-  ano_lido int
+  ano_lido int,
+  nota int,
+  resenha varchar(1000),
+  id_cliente_livro int references clientes(id_cliente)
 );
+
+
