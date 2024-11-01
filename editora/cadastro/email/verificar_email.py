@@ -15,9 +15,9 @@ def verificar_email(email):
             verificar_email(email)
         else:
             print("E-mail válido!")
+            return email
     except Exception as e:
         print(f"ERRO EMAIL: {e}")
     finally:
         cursor.close()
         conn.close()
-    return email
