@@ -17,5 +17,6 @@ def cadastrar_cliente():
 
     genero = genero_valido()
 
-    pais = verificar_pais()
+    pais = verificar_pais(input("País: "))
+    
     inserir_cliente(nome, email, senha, genero, pais, data)
