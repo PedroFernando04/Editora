@@ -21,6 +21,7 @@ CREATE TABLE livros(
   id_autor_livro int references autores(id_autor),
   id_editora_livro int references editoras(id_editora),
   data_de_lancamento date,
-  id_genero_livro int references generos(id_genero)
-  status_livro varchar(20) 
+  id_genero_livro int references generos(id_genero),
+  status_livro varchar(20),
+  ano_lido int
 );
