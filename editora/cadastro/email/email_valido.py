@@ -10,4 +10,3 @@ def email_valido():
             print("Um e-mail válido deve conter um \'@\' e um \'.\'")
             print("Tente novamente\n")
 
-print(email_valido())
