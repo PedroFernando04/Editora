@@ -20,4 +20,4 @@ def verificar_email(email):
     finally:
         cursor.close()
         conn.close()
-    return row
+    return email
