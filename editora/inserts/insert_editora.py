@@ -4,7 +4,7 @@ def inserir_autor(nome, data, genero, pais):
     conn = conexao()
     try:
         cursor = conn.cursor()
-        query = "INSERT INTO autores(nome_autor, data_nascimento, genero_autor) VALUES (%s, %s, %s, %s);"
+        query = "INSERT INTO autores(nome_autor, data_nascimento, genero_autor, pais_autor) VALUES (%s, %s, %s, %s);"
         cursor.execute(query, (nome, data, genero, pais))
         conn.commit()
         print("Autor cadastrado com sucesso!")
