@@ -3,6 +3,11 @@ CREATE TABLE paises(
   nome_pais varchar(200) not null unique
 );
 
+CREATE TABLE status(
+  id_status serial primary key,
+  nome_status varchar(100) not null unique
+);
+
 CREATE TABLE autores(
   id_autor serial primary key,
   nome_autor varchar(500) not null,
