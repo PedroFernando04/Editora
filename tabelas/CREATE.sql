@@ -42,7 +42,7 @@ CREATE TABLE livros(
   id_editora_livro int references editoras(id_editora),
   data_de_lancamento date,
   id_genero_livro int references generos(id_genero),
-  status_livro varchar(20),
+  status_livro int references status(id_status),
   ano_lido int,
   nota int,
   resenha varchar(1000),
