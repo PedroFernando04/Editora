@@ -3,6 +3,7 @@ from verificar_email import verificar_email
 from senha_valida import senha_valida
 from email_valido import email_valido
 from genero_valido import genero_valido
+from verificar_pais import verificar_pais
 
 def cadastrar_cliente():
     print("Vamos realizar o seu cadastro!")
@@ -16,5 +17,5 @@ def cadastrar_cliente():
 
     genero = genero_valido()
 
-    pais = 1
+    pais = verificar_pais()
     inserir_cliente(nome, email, senha, genero, pais, data)
