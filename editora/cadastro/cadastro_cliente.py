@@ -1,9 +1,9 @@
-from insert_editora import inserir_cliente
-from verificar_email import verificar_email
-from senha_valida import senha_valida
-from email_valido import email_valido
-from genero_valido import genero_valido
-from verificar_pais import verificar_pais
+from editora.inserts.insert_editora import inserir_cliente
+from email.verificar_email import verificar_email
+from email.email_valido import email_valido
+from senha.senha_valida import senha_valida
+from genero.genero_valido import genero_valido
+from pais.verificar_pais import verificar_pais
 
 def cadastrar_cliente():
     print("Vamos realizar o seu cadastro!")
