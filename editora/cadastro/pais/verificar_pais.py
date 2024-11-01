@@ -4,13 +4,14 @@ def verificar_pais(pais):
     conn = conexao()
     try:
         cursor = conn.cursor()
-        query = "SELECT email_cliente FROM clientes WHERE email_cliente = %s"
+        query = "SELECT nome_pais FROM paises WHERE nome_pais = %s"
         cursor.execute(query, (pais,))
         conn.commit()
         row = cursor.fetchall()
-        print("email verificado!")
+        print("país verificado!")
         if row:
             print('País presente no banco')
+            return pais
         else:
             print("País desconhecido!")
             pais = input("Insira um novo país: ")
@@ -20,4 +21,3 @@ def verificar_pais(pais):
     finally:
         cursor.close()
         conn.close()
-    
