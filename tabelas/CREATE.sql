@@ -1,9 +1,14 @@
+CREATE TABLE paises(
+  id_pais serial primary key,
+  nome_pais not null unique
+);
+
 CREATE TABLE autores(
   id_autor serial primary key,
   nome_autor varchar(500) not null,
   data_nascimento date not null,
   genero_autor char(1),
-  pais varchar(200)
+  pais_autor int references paises(id_pais)
 );
 
 CREATE TABLE editoras(
@@ -22,7 +27,7 @@ CREATE TABLE clientes(
   email_cliente varchar(500),
   senha_cliente varchar(500),
   genero_cliente char(1),
-  pais_cliente varchar(200)
+  pais_cliente int references paises(id_pais)
 );
 
 CREATE TABLE livros(
