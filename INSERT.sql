@@ -34,7 +34,7 @@ VALUES
 INSERT INTO clientes(nome_cliente, email_cliente, senha_cliente, genero_cliente, pais_cliente)
 VALUES
   ('Admin', 'admin', 'admin', null, null),
-  ('Pedro Fernando', 'pedrofernandofb@gmail.com', 'dicria', 'M', 'Brasil')
+  ('Pedro Fernando', 'pedrofernandofb@gmail.com', 'dicria', 'M', 'Brasil');
 
 INSERT INTO livros(nome_livro, id_autor_livro, id_editora_livro, data_de_lancamento, id_genero_livro, status_livro, ano_lido, nota, resenha, id_cliente_livro)
 VALUES
