@@ -4,6 +4,7 @@ from editora.cadastro.senha.senha_valida import senha_valida, mostrar_senha
 from editora.cadastro.genero.genero_valido import genero_valido
 from editora.cadastro.pais.verificar_pais import verificar_pais
 from editora.cadastro.data.data_valida import data_valida
+from editora.inserts.insert_editora import inserir_cliente
 import os
 
 def delay():
@@ -37,7 +38,7 @@ def cadastrar_cliente():
     data = data_valida()
     delay()
     
-    #inserir_cliente(nome, email, senha, genero, pais, data)
+    inserir_cliente(nome, email, senha, genero, pais, data)
 
     return nome, email, senha, genero, pais, data
 
