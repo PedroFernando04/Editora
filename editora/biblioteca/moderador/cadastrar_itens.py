@@ -5,8 +5,6 @@ inserir_autor()
 
 inserir_cliente()
 
-inserir_autor()
-
 inserir_editora()
 
 inserir_genero()
