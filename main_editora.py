@@ -1,4 +1,4 @@
-"""from editora.inserts.insert_editora import inserir_autor, inserir_editora, inserir_genero, inserir_livro, inserir_cliente
+from editora.inserts.insert_editora import inserir_autor, inserir_editora, inserir_genero, inserir_livro, inserir_cliente
 from editora.cadastro.cadastro_cliente import cadastrar_cliente
 
 nome_editora = 'Edicria'
@@ -12,8 +12,8 @@ while True:
     opc = int(input())
 
     if opc == 1:
-        cadastro_cliente = cadastrar_cliente()"""
-from editora.cadastro.cadastro_cliente import cadastrar_cliente
-
-print(cadastrar_cliente())
-
+        #função retorna toso os campos do cadastro
+        cadastro_cliente = cadastrar_cliente()
+    elif opc == 2:
+        #função booleana
+        login_cliente = logar_cliente()
