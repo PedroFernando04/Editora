@@ -198,7 +198,7 @@ INSERT INTO paises (nome_pais) VALUES
 INSERT INTO status(nome_status)
 VALUES
   ('Lido'),
-  ('Em progresso'),
+  ('Lendo'),
   ('Lista de desejos');
 
 INSERT INTO autores(nome_autor, data_nascimento, genero_autor, pais_autor)
