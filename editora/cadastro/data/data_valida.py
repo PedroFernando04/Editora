@@ -28,6 +28,15 @@ def validacao_data(dia, mes, num, tipo, ano_atual):
                         print(f"Dia: {dia}")
                         print(f"Mês: {mes}")
                         num = int(input("Ano: "))
+                    elif num < 10:
+                        num = str(f"000{str(num)}")
+                        return num
+                    elif num < 100:
+                        num = str(f"00{str(num)}")
+                        return num
+                    elif num < 1000:
+                        num = str(f"0{str(num)}")
+                        return num
                     else:
                         return num
     
@@ -73,8 +82,10 @@ def try_ano(dia, mes):
             ano_valido = validacao_data(dia, mes, ano, 'ano', 2024)
             os.system('cls' or 'clear')
             return str(ano_valido)
+        
         except Exception as e:
             os.system('cls' or 'clear')
+            print(e)
             print("Formato inválido!")
             print("Informe um ano válido!\n")
 
