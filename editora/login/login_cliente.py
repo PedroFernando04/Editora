@@ -1,15 +1,13 @@
-from editora.conexao.criar_conexao_editora import conexao
-import os
 
-def logar_cliente():
+
+def logar_cliente(conn):
     email = input("Login: ")
     senha = input("Senha: ")
 
-    conn = conexao()
     try:
         cursor = conn.cursor()
-        query = f"SELECT * FROM editora.clientes WHERE email_cliente = '{email}' AND senha_cliente = '{senha}'"
-        cursor.execute(query)
+        query = "SELECT * FROM editora.clientes WHERE email_cliente = %s AND senha_cliente = %s"
+        cursor.execute(query,(email, senha))
         conn.commit()
         row = cursor.fetchall()
     except Exception as e:
@@ -19,8 +17,10 @@ def logar_cliente():
         conn.close()
     
     if row:
+        print("Login realizado com sucesso!")
         return True
     else:
+        print("Usuário ou senha inválido!")
         return False
 
     
