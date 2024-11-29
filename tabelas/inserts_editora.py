@@ -1,3 +1,5 @@
+--INSERTS:
+
 INSERT INTO paises (nome_pais) VALUES
 ('Afeganistão'),
 ('África do Sul'),
@@ -201,7 +203,7 @@ VALUES
   ('Lendo'),
   ('Lista de desejos');
 
-INSERT INTO autores(nome_autor, data_nascimento, genero_autor, pais_autor)
+INSERT INTO autores(nome_autor, data_nascimento_autor, genero_autor, pais_autor)
 VALUES
   ('Affonso Solano', '19811113', 'M', 27),
   ('Agatha Christie', '18900915', 'F', 146),
@@ -234,12 +236,12 @@ VALUES
     ('Verus'),
     ('Planeta');
 
-INSERT INTO clientes(nome_cliente, email_cliente, senha_cliente, genero_cliente, pais_cliente)
+INSERT INTO clientes(nome_cliente, email_cliente, senha_cliente, genero_cliente, pais_cliente, data_nascimento_cliente)
 VALUES
-  ('Admin', 'admin', 'admin', null, null),
-  ('Pedro Fernando', 'pedrofernandofb@gmail.com', 'dicria', 'M', 27);
+  ('Admin', 'admin', 'admin', 'a', 1, '00010101'),
+  ('Pedro Fernando', 'pedrofernandofb@gmail.com', 'dicria', 'M', 27, '20040428');
 
-INSERT INTO livros(nome_livro, id_autor_livro, id_editora_livro, data_de_lancamento, id_genero_livro, status_livro, ano_lido, nota, resenha, id_cliente_livro)
+INSERT INTO livros(nome_livro, id_autor_livro, id_editora_livro, data_de_lancamento_livro, id_genero_livro, id_status_livro, ano_lido_livro, nota_livro, resenha_livro, id_cliente_livro)
 VALUES
     ('O Espadachim de Carvão', 1, 1, '20130101', 1, 1, 2024, 9, null, 2),
     ('Caixa de Pássaros', 4, 3, '20150121', 2, 1, 2024, 9, null, 2),
@@ -251,5 +253,4 @@ VALUES
     ('O Leão, a Feiticeira e o Guarda-Roupa', 3, 2, '19501016', 7, 1, 2024, 7, null, 2),
     ('Espadachim de Carvão e as pontes de Puzur', 1, 1, '20150910', 1, 1, 2024, 9, null, 2),
     ('A ascensão de Kyoshi: O passado da poderosa Avatar do Reino da Terra', 8, 8, '20190716', 1, 2, 2024, null, null, 2);
-  
   
