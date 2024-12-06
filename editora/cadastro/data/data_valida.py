@@ -91,7 +91,6 @@ def try_ano(dia, mes):
 
 
 def data_valida():
-    print("Data de Nascimento: ")
 
     dia_valido = try_dia()
     if len(dia_valido) < 2:
