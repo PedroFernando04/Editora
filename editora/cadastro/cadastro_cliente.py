@@ -35,11 +35,11 @@ def cadastrar_cliente():
     pais = verificar_pais(input("País: "))
     delay()
 
+    
+    print("Data de Nascimento: ")
     data = data_valida()
     delay()
     
     inserir_cliente(nome, email, senha, genero, pais, data)
 
     return nome, email, senha, genero, pais, data
-
-
