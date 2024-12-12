@@ -1,7 +1,4 @@
-from editora.conexao.criar_conexao_editora import conexao
-
-def inserir_autor(nome, data, genero, pais):
-    conn = conexao()
+def inserir_autor(conn, nome, data, genero, pais):
     try:
         cursor = conn.cursor()
         query = "INSERT INTO editora.autores(nome_autor, data_nascimento, genero_autor, pais_autor) VALUES (%s, %s, %s, %s);"
@@ -10,12 +7,9 @@ def inserir_autor(nome, data, genero, pais):
         print("Autor cadastrado com sucesso!")
     except Exception as e:
         print(f"ERRO AUTOR: {e}")
-    finally:
-        cursor.close()
-        conn.close()
+    
 
-def inserir_editora(nome):
-    conn = conexao()
+def inserir_editora(conn, nome):
     try:
         cursor= conn.cursor()
         query = "INSERT INTO editora.editoras(nome_editora) VALUES (%s);"
@@ -24,12 +18,9 @@ def inserir_editora(nome):
         print(f"Editora cadastrada com sucesso!")
     except Exception as e:
         print(f"ERRO EDITORA: {e}")
-    finally:    
-        cursor.close()
-        conn.close()
+    
 
-def inserir_genero(nome):
-    conn = conexao()
+def inserir_genero(conn, nome):
     try:
         cursor = conn.cursor()
         query = "INSERT INTO editora.generos(nome_genero) VALUES (%s);"
@@ -38,12 +29,8 @@ def inserir_genero(nome):
         print("Genero cadastrado com sucesso!")
     except Exception as e:
         print(f"ERRO GENERO: {e}")
-    finally:
-        cursor.close()
-        conn.close()
 
-def inserir_cliente(nome, email, senha, genero, pais, data):
-    conn = conexao()
+def inserir_cliente(conn, nome, email, senha, genero, pais, data):
     try:
         cursor = conn.cursor()
         query = "INSERT INTO editora.clientes(nome_cliente, email_cliente, senha_cliente, genero_cliente, pais_cliente, data_nascimento_cliente) VALUES(%s, %s, %s, %s, %s, %s)"
@@ -52,12 +39,8 @@ def inserir_cliente(nome, email, senha, genero, pais, data):
         print("Usuario cadastrado com sucesso!")
     except Exception as e:
         print(f"ERRO CLIENTE: {e}")
-    finally:
-        cursor.close()
-        conn.close()
 
-def inserir_livro(nome, id_autor, id_editora, data, id_genero, status, ano, nota, resenha, id_cliente):
-    conn = conexao()
+def inserir_livro(conn, nome, id_autor, id_editora, data, id_genero, status, ano, nota, resenha, id_cliente):
     try:
         cursor = conn.cursor()
         query = "INSERT INTO editora.livros(nome_livro, id_autor_livro, id_editora_livro, data_de_lancamento, id_genero_livro) VALUES (%s, %s, %s, %s, %s);"
@@ -66,7 +49,4 @@ def inserir_livro(nome, id_autor, id_editora, data, id_genero, status, ano, nota
         print("Livro cadastrado com sucesso!")
     except Exception as e:
         print(f"ERRO LIVRO: {e}")
-    finally:
-        cursor.close()
-        conn.close()
 
