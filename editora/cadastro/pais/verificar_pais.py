@@ -1,22 +1,19 @@
-from editora.conexao.criar_conexao_editora import conexao
-import os
+from editora.defs.defs_basicas import *
 
-def verificar_pais(pais):
+def verificar_pais(pais, conn):
     while True:
-        conn = conexao()
         try:
             cursor = conn.cursor()
-            query = "SELECT nome_pais FROM paises WHERE nome_pais = %s"
+            query = "SELECT id_pais FROM editora.paises WHERE nome_pais = %s"
             cursor.execute(query, (pais,))
             conn.commit()
-            row = cursor.fetchall()
+            row = cursor.fetchone()
+            clear()
             if row:
-                os.system('cls' or 'clear')
                 print(f"País: {pais}")
                 print('País cadastrado!')
-                return pais
+                return row
             else:
-                os.system('cls' or 'clear')
                 print(f"País: {pais}")
                 print("País desconhecido!\n")
                 pais = input("Insira um novo país: ")
@@ -24,4 +21,3 @@ def verificar_pais(pais):
             print(f"ERRO PAIS: {e}")
         finally:
             cursor.close()
-            conn.close()
