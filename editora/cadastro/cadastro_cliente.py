@@ -8,17 +8,17 @@ from editora.inserts.insert_editora import inserir_cliente
 import os
 
 def delay():
-    input('\nAperte \'enter\' para prosseguir')
+    input('\nAperte \'[Enter]\' para prosseguir')
     os.system('cls' or 'clear')
 
-def cadastrar_cliente():
+def cadastrar_cliente(conn):
     print("Vamos realizar o seu cadastro!")
     print("Por favor, preencha as informações solicitadas:\n")
     
     nome = input("Nome: ")
     delay()
     
-    email = verificar_email(email_valido())
+    email = verificar_email(email_valido(), conn)
     delay()
     print(f"Nome: {nome}\nE-mail: {email}")
     delay()
@@ -32,14 +32,13 @@ def cadastrar_cliente():
     genero = genero_valido()
     delay()
 
-    pais = verificar_pais(input("País: "))
+    pais = verificar_pais(input("País: "), conn)
     delay()
-
     
     print("Data de Nascimento: ")
     data = data_valida()
     delay()
     
-    inserir_cliente(nome, email, senha, genero, pais, data)
+    inserir_cliente(conn, nome, email, senha, genero, pais, data)
 
     return nome, email, senha, genero, pais, data
