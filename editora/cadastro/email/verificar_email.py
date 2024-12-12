@@ -1,19 +1,18 @@
 from editora.conexao.criar_conexao_editora import conexao
 from editora.cadastro.email.email_valido import email_valido
-import os
+from editora.defs.defs_basicas import *
 
 
-def verificar_email(email):
+def verificar_email(email, conn):
     while True:
-        conn = conexao()
         try:
             cursor = conn.cursor()
-            query = "SELECT email_cliente FROM clientes WHERE email_cliente = %s"
+            query = "SELECT email_cliente FROM editora.clientes WHERE email_cliente = %s"
             cursor.execute(query, (email,))
             conn.commit()
             row = cursor.fetchall()
             if row:
-                os.system('cls' or 'clear')
+                clear()
                 print('E-mail já cadastrado!')
                 print("Por favor, insira outro e-mail ")
                 email = email_valido()
@@ -23,5 +22,5 @@ def verificar_email(email):
             print(f"ERRO EMAIL: {e}")
         finally:
             cursor.close()
-            conn.close()
+            
 
