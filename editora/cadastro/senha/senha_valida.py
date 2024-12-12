@@ -1,4 +1,4 @@
-import os
+from editora.defs.defs_basicas import *
 
 def senha_valida():
     senha1 = input("Senha: ")
@@ -8,11 +8,11 @@ def senha_valida():
             print("Senha cadastrada!")
             return senha1
         else:
-            os.system('cls' or 'clear')
+            clear()
             print("Senhas não correspondentes\nTente novamente!\n")
             senha1 = input("Senha: ")
             senha2 = input("Insira a senha novamente: ")
-            os.system('cls' or 'clear')
+            clear()
             
     
 def mostrar_senha(senha):
