@@ -1,4 +1,3 @@
-
 #nome
 #autor - select 
 #editora - select
@@ -10,7 +9,7 @@
 #resenha
 #(id_cliente)
 
-from editora.biblioteca.delay import delay
+from editora.defs.defs_basicas import *
 from editora.cadastro.data.data_valida import data_valida
 import os
 
@@ -59,6 +58,7 @@ class cadastro_livro():
             editora_livro = input("Informe o autor pelo seu respectivo número: ")
 
             if editora_livro in range_lista:
+                delay()
                 return editora_livro
             else:
                 os.system('cls' or 'clear')
@@ -88,6 +88,7 @@ class cadastro_livro():
             editora_livro = input("Informe a editora pelo seu respectivo número: ")
 
             if editora_livro in range_lista:
+                delay()
                 return editora_livro
             else:
                 os.system('cls' or 'clear')
@@ -178,6 +179,7 @@ class cadastro_livro():
                 os.system('cls' or 'clear')
                 print('Nota inválida')
             else:
+                delay()
                 return nota
 
     def resenha_livro():
