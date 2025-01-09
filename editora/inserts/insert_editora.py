@@ -1,7 +1,7 @@
 def inserir_autor(conn, nome, data, genero, pais):
     try:
         cursor = conn.cursor()
-        query = "INSERT INTO editora.autores(nome_autor, data_nascimento, genero_autor, pais_autor) VALUES (%s, %s, %s, %s);"
+        query = "INSERT INTO editora.autores(nome_autor, data_nascimento_autor, genero_autor, pais_autor) VALUES (%s, %s, %s, %s);"
         cursor.execute(query, (nome, data, genero, pais))
         conn.commit()
         print("Autor cadastrado com sucesso!")
@@ -43,8 +43,14 @@ def inserir_cliente(conn, nome, email, senha, genero, pais, data):
 def inserir_livro(conn, nome, id_autor, id_editora, data, id_genero, status, ano, nota, resenha, id_cliente):
     try:
         cursor = conn.cursor()
-        query = "INSERT INTO editora.livros(nome_livro, id_autor_livro, id_editora_livro, data_de_lancamento, id_genero_livro) VALUES (%s, %s, %s, %s, %s);"
-        cursor.execute(query, (nome, id_autor, id_editora, data, id_genero, status, ano, nota, resenha, id_cliente))
+        if status == 1:
+            query = "INSERT INTO editora.livros(nome_livro, id_autor_livro, id_editora_livro, data_de_lancamento_livro, id_genero_livro, id_status_livro, ano_lido_livro, nota_livro, resenha_livro, id_cliente_livro) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"
+            cursor.execute(query, (nome, id_autor, id_editora, data, id_genero, status, ano, nota, resenha, id_cliente))
+        
+        else:
+            query = "INSERT INTO editora.livros(nome_livro, id_autor_livro, id_editora_livro, data_de_lancamento_livro, id_genero_livro, id_cliente_livro) VALUES (%s, %s, %s, %s, %s, %s, %s);" 
+            cursor.execute(query, (nome, id_autor, id_editora, data, id_genero, status, id_cliente))
+        
         conn.commit()
         print("Livro cadastrado com sucesso!")
     except Exception as e:
