@@ -1,14 +1,3 @@
-#nome
-#autor - select 
-#editora - select
-#data
-#genero
-#status - select
-#ano
-#nota
-#resenha
-#(id_cliente)
-
 from editora.defs.defs_basicas import *
 from editora.cadastro.data.data_valida import data_valida
 import os
@@ -16,7 +5,8 @@ import os
 class cadastro_livro():
     def __init__():
         print("Vamos cadastrar um novo livro!")
-        print("Por favor insira as informações requisistadas")
+        print("Por favor insira as informações requisitadas")
+        print("\nPressione [ ENTER ] para continuar")
 
     def nome_livro(conn):
         while True:
@@ -58,7 +48,6 @@ class cadastro_livro():
             editora_livro = input("Informe o autor pelo seu respectivo número: ")
 
             if editora_livro in range_lista:
-                delay()
                 return editora_livro
             else:
                 os.system('cls' or 'clear')
@@ -88,7 +77,6 @@ class cadastro_livro():
             editora_livro = input("Informe a editora pelo seu respectivo número: ")
 
             if editora_livro in range_lista:
-                delay()
                 return editora_livro
             else:
                 os.system('cls' or 'clear')
@@ -96,6 +84,7 @@ class cadastro_livro():
                 print("Informe um número conforme a tabela\n")
     
     def data_livro():
+        print("Insira a data de lançamento do livro: ")
         return data_valida()
 
     def genero_livro(conn):
