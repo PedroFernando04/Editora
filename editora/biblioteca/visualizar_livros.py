@@ -1,21 +1,5 @@
-def visualizar_livros(conn, id_cliente):
-    
-    cursor = conn.cursor()
-    query = """
-                SELECT nome_livro, nome_autor, nome_editora, 
-                data_de_lancamento_livro, nome_genero, nome_status, 
-                ano_lido_livro, nota_livro, resenha_livro
-                
-                FROM editora.livros l 
-                JOIN editora.autores a ON l.id_autor_livro = a.id_autor
-                JOIN editora.editoras e ON l.id_editora_livro = e.id_editora
-                JOIN editora.generos g ON l.id_genero_livro = g.id_genero
-                JOIN editora.status s ON l.id_status_livro = s.id_status
-
-                WHERE id_cliente_livro = %s
-            """
-    cursor.execute(query, (id_cliente,))
-    livros = cursor.fetchall()
+from editora.cadastro.data.visualizar_data import visualizar_data
+def visualizar_livros(livros):
 
     if livros:
         for livro in livros:
@@ -31,19 +15,31 @@ def visualizar_livros(conn, id_cliente):
                 livro[8]
             )
 
-            (nome, autor, editora, data_lancamento, genero,  status, ano_lido, nota, resenha) = info_livro
-            
-            print("-"*120)
-            print(f"Nome: {nome}")
-            print(f"Autor(a): {autor}")
-            print(f"Editora: {editora}")
-            print(f"Data de Lançamento: {data_lancamento}")
-            print(f"Gênero: {genero}")
-            print(f"Status: {status}")
-            print(f"Ano lido: {ano_lido}")
-            print(f"Nota: {nota}")
-            print(f"Resenha: {resenha}")
-            print("-"*120)
+            (nome, autor, editora, data_lancamento, genero, status, ano_lido, nota, resenha) = info_livro
+
+            if status == 'Lido':
+                print("-"*120)
+                print(f"Nome: {nome}")
+                print(f"Autor(a): {autor}")
+                print(f"Editora: {editora}")
+                print(f"Data de Lançamento: {visualizar_data(data_lancamento)}")
+                print(f"Gênero: {genero}")
+                print(f"Status: {status}")
+                print(f"Ano lido: {ano_lido}")
+                print(f"Nota: {nota}")
+                print(f"Resenha: {resenha}")
+                print("-"*120)
+
+            else:
+
+                print("-"*120)
+                print(f"Nome: {nome}")
+                print(f"Autor(a): {autor}")
+                print(f"Editora: {editora}")
+                print(f"Data de Lançamento: {visualizar_data(data_lancamento)}")
+                print(f"Gênero: {genero}")
+                print(f"Status: {status}")
+                print("-"*120)
 
     else:
         print("Nenhum livro cadastrado!")
