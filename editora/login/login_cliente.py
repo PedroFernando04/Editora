@@ -15,5 +15,5 @@ def logar_cliente(conn):
         print("\nLogin realizado com sucesso!\n")
         return row
     else:
-        print("Usuário ou senha inválido!")
+        print("\nUsuário ou senha inválido!")
         return False
