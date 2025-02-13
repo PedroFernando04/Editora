@@ -1,3 +1,14 @@
+#nome
+#autor - select 
+#editora - select
+#data
+#genero
+#status - select
+#ano
+#nota
+#resenha
+#(id_cliente)
+
 from editora.defs.defs_basicas import *
 from editora.cadastro.data.data_valida import data_valida
 import os
@@ -11,7 +22,7 @@ class cadastro_livro():
     def nome_livro(conn):
         while True:
             delay()
-            nome_livro = input("Nomde do livro: ")
+            nome_livro = input("Nome do livro: ")
 
             cursor = conn.cursor()
             query = "SELECT nome_livro FROM editora.livros WHERE nome_livro = %s"
@@ -21,7 +32,7 @@ class cadastro_livro():
             if row:
                 print("Livro já cadastrado!")
             else: 
-                print("Nome cadastrado com sucesso!")
+                print("Nome cadastrado com sucesso!\n")
                 delay()
                 return nome_livro
     
@@ -145,12 +156,12 @@ class cadastro_livro():
                 print("Valor inválido!")
                 print("Informe um número conforme a tabela\n")
     
-    def ano_lido_livro(ano_atual = 2024):
+    def ano_lido_livro(ano_atual):
         while True:
             try:
                 ano_lido = int(input("Ano lido: "))
                 if ano_lido < 0 or ano_lido > ano_atual:
-                    raise Exception('Data inválida')
+                    raise Exception('Data inválida\nAno inexistente!')
             except Exception:
                 os.system('cls' or 'clear')
                 print('Data inválida')
@@ -161,14 +172,13 @@ class cadastro_livro():
 
         while True:
             try:
-                nota = int(input('Informe a nota do livro(0 a 10): '))
+                nota = float(input('Informe a nota do livro(0 a 10): '))
                 if nota < 0 or nota > 10:
                     raise Exception('Nota inválida')
             except Exception:
                 os.system('cls' or 'clear')
                 print('Nota inválida')
             else:
-                delay()
                 return nota
 
     def resenha_livro():
