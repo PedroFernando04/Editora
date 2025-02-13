@@ -35,8 +35,8 @@ def menu_editora(conn, id_cliente):
                 status = cadastro_livro.status_livro(conn)
                 clear()
 
-                if status == 1:
-                    ano = cadastro_livro.ano_lido_livro(ano_atual = 2024)
+                if status == '1':
+                    ano = cadastro_livro.ano_lido_livro(ano_atual = 2025)
                     clear()
 
                     nota = cadastro_livro.nota_livro()
