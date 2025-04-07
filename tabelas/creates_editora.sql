@@ -1,3 +1,15 @@
+CREATE SCHEMA IF NOT EXISTS editora;
+set search_path to editora;
+
+drop table if exists editora.livros;
+drop table if exists editora.autores;
+drop table if exists editora.editoras;
+drop table if exists editora.generos;
+drop table if exists editora.clientes;
+drop table if exists editora.status;
+drop table if exists editora.paises;
+
+
 CREATE TABLE paises(
   id_pais serial primary key,
   nome_pais varchar(200) not null unique
