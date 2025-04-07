@@ -23,22 +23,28 @@ while True:
     if opc == '1':
         #função retorna toso os campos do cadastro
         cadastro_cliente = cadastrar_cliente(conn)
+        
     elif opc == '2':
         
+        
+
         #função booleana
         id_cliente = logar_cliente(conn)
         delay()
-        
-        if id_cliente == 1:
-            menu_mod(conn, id_cliente)
 
-        elif id_cliente:
-            #entra na editora
-            menu_editora(conn, id_cliente)
-
-        else:
+        if id_cliente is None:
+            print("Usuário inválido!")
             continue
             #volta pro loop do menu
+        
+        elif id_cliente[1] == True:
+            menu_mod(conn, id_cliente[0])
+
+        else:
+            #entra na editora
+            menu_editora(conn, id_cliente[0])
+
+        
 
     elif opc == '3':
         print("Finalizando...")
